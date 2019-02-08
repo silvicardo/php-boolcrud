@@ -1,4 +1,4 @@
-<?php include '../header.php'; ?>
+<?php include '../template_parts/header.php'; ?>
 
 <?php
 //CREATE
@@ -15,4 +15,4 @@ $ospiteNew = [
 
 <h6>CREATE QUERY <br><?php echo createNewGuestFrom($ospiteNew); ?></h6>
 
-<?php include '../footer.php'; ?>
+<?php include '../template_parts/footer.php'; ?>
