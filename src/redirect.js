@@ -1,4 +1,4 @@
-console.log('redirecting to Homepage in 3 seconds');
+console.log('redirecting to Guests Homepage in 3 seconds');
 
 $(document).ready(function () {
 

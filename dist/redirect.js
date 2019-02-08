@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-console.log('redirecting to Homepage in 3 seconds');
+console.log('redirecting to Guests Homepage in 3 seconds');
 $(document).ready(function () {
   setTimeout(function () {
     window.location.replace("http://localhost/FEBBRAIO/php-boolcrud/guests/");

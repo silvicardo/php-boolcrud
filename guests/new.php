@@ -1,7 +1,5 @@
 <?php include '../template_parts/header.php'; ?>
 
-
-
 <div class="container">
   <div class="jumbotron">
 

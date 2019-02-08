@@ -2,7 +2,6 @@
 
 <?php $guests = getGuestById($_GET['id']); ?>
 
-
 <div class="container">
   <div class="jumbotron">
 
