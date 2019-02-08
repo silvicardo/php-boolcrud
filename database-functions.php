@@ -70,7 +70,12 @@ function generateCreateQueryFrom($tableName, $data) {
 
   foreach ($setKeyValuePairs as $key => $value) {
     $fieldsArray[] =  "`$key`";
-    $valuesArray[] = "`$value`";
+    if ($value === 'NOW()') {
+      $valuesArray[] = "$value";
+    } else {
+      $valuesArray[] = "'$value'";
+    }
+
   }
 
   $fields = implode(', ', $fieldsArray);
@@ -84,12 +89,18 @@ function generateUpdateQueryFrom($tableName, $data, $id) {
   $setKeyValuePairs = ["`updated_at` = NOW()"];
 
   foreach ($data as $key => $value) {
-    $setKeyValuePairs[] =  "`$key` = `$value`";
+    if ($key === 'date_of_birth') {
+      $dbDate =  convertDateToFormat($value,'Y-m-d');
+
+      $setKeyValuePairs[] =  "`$key` = '$dbDate'";
+    } else {
+      $setKeyValuePairs[] =  "`$key` = '$value'";
+    }
   }
 
   $set = implode(', ', $setKeyValuePairs);
 
-  return "UPDATE `$tableName` SET ($set) WHERE `id` = $id;";
+  return "UPDATE `$tableName` SET $set WHERE `id` = $id;";
 }
 
 ?>

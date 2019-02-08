@@ -22,8 +22,7 @@ function createNewGuestFrom($data) {
 
   $query = generateCreateQueryFrom('ospiti', $data);
 
-  return $query;
-  //return performChangesFrom($query);
+  return performChangesFrom($query);
 
 }
 
@@ -37,8 +36,7 @@ function updateGuestFrom($id, $data) {
 
   $query = generateUpdateQueryFrom('ospiti', $data, $id);
 
-  return $query;
-  //return performChangesFrom($query);
+  return performChangesFrom($query);
 
 }
 
@@ -52,9 +50,7 @@ function deleteGuestFrom($id) {
 
   $query = "DELETE FROM `ospiti` WHERE `id` = $id;";
 
-  return $query;
-
-  //return performChangesFrom($query);
+  return performChangesFrom($query);
 
 }
 
