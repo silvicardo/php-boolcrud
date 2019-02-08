@@ -2,7 +2,6 @@
 
 <?php $guests = getAllGuests(); ?>
 
-
 <div class="container">
   <h1 class="text-center">Guests</h1>
 
@@ -12,7 +11,7 @@
 
   <div class="jumbotron">
 
-    <?php include '../template_parts/guests/showGuests.php'; ?>
+    <?php include '../template_parts/guests/guests-table.php'; ?>
 
   </div>
 </div>

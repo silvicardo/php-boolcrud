@@ -2,11 +2,13 @@
 
 <?php $guests = getGuestById($_GET['id']); ?>
 
+
 <div class="container">
-  <h1 class="text-center">Guests</h1>
   <div class="jumbotron">
 
-    <?php include '../template_parts/guests/showGuests.php'; ?>
+      <h1 class="text-center mb-5">Guest Details</h1>
+
+    <?php include '../template_parts/guests/guests-table.php'; ?>
 
   </div>
 </div>

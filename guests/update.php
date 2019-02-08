@@ -1,70 +1,24 @@
 
 <?php include '../template_parts/header.php'; ?>
 
-<?php if (!empty($_GET['id']) && count($_GET) === 1)  { ?>
-
-  <?php $currentGuest = getGuestById($_GET['id'])[0];
-        $currentGuest['date_of_birth'] = convertDateToFormat($currentGuest['date_of_birth'],'Y-m-d');
-   ?>
-
 <div class="container">
   <div class="jumbotron">
 
-    <form method="POST" action="http://localhost/FEBBRAIO/php-boolcrud/guests/update.php">
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" class="form-control" name="name" placeholder="New guest Name" value="<?php echo $currentGuest['name'];?>">
-      </div>
-      <div class="form-group">
-        <label>Last Name</label>
-        <input type="text" class="form-control" name="lastname" placeholder="New guest Last Name" value="<?php  echo $currentGuest['lastname'];?>">
-      </div>
-      <div class="form-group">
-        <label>Date of birth</label>
-      <input type="date" class="form-control" name="date_of_birth" value="<?php echo $currentGuest['date_of_birth']; ?>">
-      </div>
-      <div class="form-group">
-        <label>Document Type</label>
-        <select class="form-control" name="document_type">
-          <option value="CI">CI</option>
-          <option value="Driver License">Driver License</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>document_number</label>
-        <input type="text" class="form-control" name="document_number" placeholder="example : 899.1221.5256 x375" value="<?php echo $currentGuest['document_number'] ?>">
-      </div>
-      <input type="hidden" name="id" value="<?php echo $currentGuest['id']; ?>">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <h1 class="text-center mb-5">Update Guest</h1>
+    <?php
+    if (!empty($_GET['id']) && count($_GET) === 1)  {
+
+      include '../template_parts/guests/update-form.php';
+
+    } else {
+
+       include '../template_parts/guests/update-result.php';
+
+     }
+     ?>
+
 
   </div>
 </div>
-
-<?php } else { ?>
-
-  <?php
-
-  $updatedGuest = [];
-
-  foreach ($_POST as $key => $value) {
-    if ($key !== 'id') {
-      $updatedGuest[$key] = $value;
-    }
-  }
-
-  $updateSuccesful =  updateGuestFrom($_POST['id'], $updatedGuest); ?>
-   <div class="container">
-     <div class="jumbotron">
-       <?php if ($updateSuccesful){ ?>
-         <h3>Update Succesful, back to the Homepage</h3>
-       <?php } else { ?>
-         <h3>Update Failed, back to Homepage</h3>
-       <?php } ?>
-     </div>
-   </div>
-
-
-<?php } ?>
 
 <?php include '../template_parts/footer.php'; ?>

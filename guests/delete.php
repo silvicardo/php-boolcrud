@@ -1,14 +1,12 @@
 <?php include '../template_parts/header.php'; ?>
 
-<?php $deletionSuccess = deleteGuestFrom($_POST['id']); ?>
-
-<div class="container">
+<div class="container text-center ">
   <div class="jumbotron">
-    <?php if ($deletionSuccess){ ?>
-      <h3>Deletion Succesful, back to the Homepage</h3>
-    <?php } else { ?>
-      <h3>Deletion Failed, back to Homepage</h3>
-    <?php } ?>
+
+      <h1 class="mb-5">Guest Deletion</h1>
+
+    <?php include '../template_parts/guests/deletion-result.php'; ?>
+
   </div>
 </div>
 
